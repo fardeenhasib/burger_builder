@@ -10,7 +10,7 @@
 
 .NavLink {
     text-decoration: None;
-    color: white;
+    color: white !important;
     font-size: 25px;
     margin-top: -25px;
 }

@@ -7,7 +7,7 @@ import {
     NavLink
 } from 'reactstrap';
 import './Header.css';
-import Logo from '../../assets/logo.jpg';
+import Logo from '../../assets/logo.png';
 
 const Header = () => {
     return (
@@ -21,7 +21,7 @@ const Header = () => {
                 </NavbarBrand>
                 <Nav className="mr-md-5">
                     <NavItem> 
-                        <NavLink  className="NavLink">Something</NavLink>
+                        <NavLink href="#" className="NavLink">Something</NavLink>
                     </NavItem>
                 </Nav>
             </Navbar>
