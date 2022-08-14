@@ -12,8 +12,8 @@ const BuildControl = props => {
         <div className="d-flex bd-highlight">
             <div>{props.label}</div>
             <div className="p-2 flex-grow-1 bd-highlight"></div>
-            <button className="p-2 bd-highlight btn btn-success btn-sm m-1">More</button>
-            <button className="p-2 bd-highlight btn btn-danger btn-sm m-1">Less</button>
+            <button className="p-2 bd-highlight btn btn-success btn-sm m-1" onClick={props.added}>More</button>
+            <button className="p-2 bd-highlight btn btn-danger btn-sm m-1" onClick={props.removed}>Less</button>
         </div>
     );
 }
@@ -34,6 +34,8 @@ const Controls = props => {
                         <BuildControl 
                          label= {item.label}
                          type = {item.type}
+                         added = {() => props.ingredientsAdd(item.type)}
+                         removed = {() => props.ingredientsRemove(item.type)}
                          key = {Math.random()}
                         /> );
                        })                    
