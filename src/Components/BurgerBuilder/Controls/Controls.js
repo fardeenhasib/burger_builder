@@ -19,6 +19,7 @@ const BuildControl = props => {
 }
 
 const Controls = props => {
+    console.log(props);
     return (
         <div className="container ml-md-5" style={{ textAlign: "center"}}>
             <Card style={{
@@ -41,7 +42,8 @@ const Controls = props => {
                        })                    
                     }
                 </CardBody>
-                <CardFooter><h5>Price: BDT</h5></CardFooter>
+                <CardFooter><h5>Price: {props.price} BDT</h5></CardFooter>
+                <Button disabled={!props.purchasable} onClick={props.orderNow}>Order Now</Button>
             </Card>
         </div>
     );
