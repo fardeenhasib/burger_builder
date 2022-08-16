@@ -10,7 +10,7 @@ const INGREDIENT_PRICE = {
     meat: 80
 }
 
-export default class BurgerBuilder extends Component{
+class BurgerBuilder extends Component{
 
     state = {
         ingredients: [
@@ -62,6 +62,13 @@ export default class BurgerBuilder extends Component{
         this.setState({purchasable: totalelements > 0})
 
     }
+    handleCheckout = () => {
+        this.props.history.push("/checkout")
+    }
+
+    componentDidMount () {
+        console.log(this.props)
+    }
     render (){
         return (
             <div>
@@ -83,7 +90,7 @@ export default class BurgerBuilder extends Component{
                         <h5>Your Total Price: {this.state.totalprice} BDT</h5>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="success" onClick={this.toggleModal}>Continue to Checkout</Button>
+                        <Button color="success" onClick={this.handleCheckout}>Continue to Checkout</Button>
                         <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
                     </ModalFooter>
                 </Modal>
@@ -92,3 +99,5 @@ export default class BurgerBuilder extends Component{
         );
     }
 }
+
+export default BurgerBuilder;
