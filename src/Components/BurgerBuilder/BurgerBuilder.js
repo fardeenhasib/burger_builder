@@ -34,11 +34,14 @@ class BurgerBuilder extends Component{
     addIngredients = type => {
         //console.log(type);
         this.props.addIngredient(type);
+         this.props.updatePurchasable();
+
 
     }
     removeIngredients = type => {
         //console.log(type);
-        this.props.removeIngredient(type); 
+        this.props.removeIngredient(type);
+        this.props.updatePurchasable(); 
     }
 
     toggleModal = () => {
@@ -48,13 +51,10 @@ class BurgerBuilder extends Component{
         console.log(this.state.modalOpen)
     }
 
-    updatePurchasble = ingredients => { 
-        const totalelements = ingredients.reduce((sum,element)=>{
-            return sum + element.amount;
-        }, 0);
-        this.setState({purchasable: totalelements > 0})
+    // updatePurchasble = () => { 
+    //     this.props.updatePurchasable();
 
-    }
+    // }
     handleCheckout = () => {
         this.props.history.push("/checkout")
     }

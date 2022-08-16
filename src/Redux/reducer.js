@@ -41,6 +41,14 @@ export const reducer = (state = INITIAL_STATE, action) => {
                 ingredients: newingredients,
                 totalprice: state.totalprice - INGREDIENT_PRICE[action.payload]
             }
+            case actionTypes.UPDATE_PURCHASABLE:
+                const sum = state.ingredients.reduce((sum,element)=>{
+                    return sum + element.amount;
+                }, 0);
+                return {
+                    ...state,
+                    purchasable: sum > 0
+                }
         default:
             return state;
     }
